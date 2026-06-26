@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-parchment-light: #fcfaf2;
+  --color-parchment-base: #f6f0df;
+  --color-parchment-dark: #ebdcb9;
+  --color-gold-light: #f7e7b4;
+  --color-gold-base: #c5a059;
+  --color-gold-dark: #9e7a3b;
+  --color-devotional-blue: #142230;
+  --color-devotional-blue-light: #22374c;
+  --color-devotional-blue-dark: #0b141e;
+  --color-terracotta: #a64b2a;
+}
+
+@layer utilities {
+  .parchment-grain {
+    background-color: var(--color-parchment-light);
+    background-image: 
+      radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 0),
+      radial-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 0);
+    background-size: 8px 8px, 13px 13px;
+    background-position: 0 0, 4px 4px;
+  }
+  
+  .golden-text-glow {
+    text-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
+  }
+
+  .golden-box-shadow {
+    box-shadow: 0 10px 30px -10px rgba(158, 122, 59, 0.2);
+  }
+
+  .devotional-card-shadow {
+    box-shadow: 
+      0 4px 20px -2px rgba(20, 34, 48, 0.06),
+      0 2px 6px -1px rgba(20, 34, 48, 0.03);
+  }
+
+  .gold-border {
+    border: 1px solid rgba(197, 160, 89, 0.4);
+  }
+
+  .gold-border-focus {
+    border-color: rgba(197, 160, 89, 0.85);
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.15);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-parchment-light);
+  border-left: 1px solid rgba(197, 160, 89, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-parchment-dark);
+  border: 2px solid var(--color-parchment-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-base);
+}
+
+/* Base custom styles */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+/* Dropcap for beautiful spiritual stories or introductions */
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  float: left;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 8px;
+  color: var(--color-terracotta);
+  font-weight: bold;
+}
